@@ -1,3 +1,5 @@
+// import groupBy from 'core-js/actual/array/group-by';
+
 /* ********************************************************************************************
  *                                                                                            *
  * Please read the following tutorial before implementing tasks:                               *
@@ -240,6 +242,7 @@ function toArrayOfSquares(arr) {
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-return-assign */
 /* eslint-disable arrow-body-style */
+/* eslint-disable no-unused-vars */
 
 function getMovingSum(arr) {
   return arr.map((a, index) => {
@@ -540,10 +543,17 @@ function distinct(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
-}
+/* eslint-disable comma-dangle */
 
+function group(array, keySelector, valueSelector) {
+  const obj = new Set(array.map((x) => keySelector(x)));
+  const subarr = Array.from(obj).map(
+    (y) => [y, array.filter((z) => Object.values(z).includes(y)).map((z) => valueSelector(z))]
+  );
+
+  const newmap = new Map(subarr);
+  return newmap;
+}
 
 /**
  * Projects each element of the specified array to a sequence
