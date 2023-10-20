@@ -216,8 +216,8 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  return `${(isStartIncluded) ? '[' : '('}${Math.min(a, b)}, ${Math.max(a, b)}${(isEndIncluded) ? ']' : ')'}`;
 }
 
 
@@ -233,8 +233,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -250,8 +250,9 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  const str = num.toString();
+  return str.split('').reverse().join('');
 }
 
 
@@ -275,8 +276,21 @@ function reverseInteger(/* num */) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  const ccnS = ccn.toString();
+  let sum = 0;
+  const parity = (ccnS.length) % 2;
+  for (let i = 0; i < ccnS.length; i += 1) {
+    let digit = Number(ccnS[i]);
+    if (i % 2 === parity) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+    sum += digit;
+  }
+  return Number(sum % 10) === 0;
 }
 
 /**
@@ -293,8 +307,11 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const strarr = num.toString().split('');
+  const sum = strarr.reduce((a, n) => a + Number(n), 0);
+  if (sum < 10) return sum;
+  return sum.toString().split('').reduce((a, n) => a + Number(n), 0);
 }
 
 
@@ -321,6 +338,8 @@ function getDigitalRoot(/* num */) {
  */
 function isBracketsBalanced(/* str */) {
   throw new Error('Not implemented');
+  // if (str.length % 2 !== 0) return false;
+  // return true;
 }
 
 
