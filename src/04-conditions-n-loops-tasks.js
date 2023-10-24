@@ -494,8 +494,26 @@ function getMatrixProduct(A, B) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
-  throw new Error('Not implemented');
+function evaluateTicTacToePosition(playMatrix) {
+  let t = 'X';
+  if (playMatrix[0][0] === t && playMatrix[0][1] === t && playMatrix[0][2] === t) return t;
+  if (playMatrix[1][0] === t && playMatrix[1][1] === t && playMatrix[1][2] === t) return t;
+  if (playMatrix[2][0] === t && playMatrix[2][1] === t && playMatrix[2][2] === t) return t;
+  if (playMatrix[0][0] === t && playMatrix[1][0] === t && playMatrix[2][0] === t) return t;
+  if (playMatrix[0][1] === t && playMatrix[1][1] === t && playMatrix[2][1] === t) return t;
+  if (playMatrix[0][2] === t && playMatrix[1][2] === t && playMatrix[2][2] === t) return t;
+  if (playMatrix[0][0] === t && playMatrix[1][1] === t && playMatrix[2][2] === t) return t;
+  if (playMatrix[0][2] === t && playMatrix[1][1] === t && playMatrix[2][0] === t) return t;
+  t = '0';
+  if (playMatrix[0][0] === t && playMatrix[0][1] === t && playMatrix[0][2] === t) return t;
+  if (playMatrix[1][0] === t && playMatrix[1][1] === t && playMatrix[1][2] === t) return t;
+  if (playMatrix[2][0] === t && playMatrix[2][1] === t && playMatrix[2][2] === t) return t;
+  if (playMatrix[0][0] === t && playMatrix[1][0] === t && playMatrix[2][0] === t) return t;
+  if (playMatrix[0][1] === t && playMatrix[1][1] === t && playMatrix[2][1] === t) return t;
+  if (playMatrix[0][2] === t && playMatrix[1][2] === t && playMatrix[2][2] === t) return t;
+  if (playMatrix[0][0] === t && playMatrix[1][1] === t && playMatrix[2][2] === t) return t;
+  if (playMatrix[0][2] === t && playMatrix[1][1] === t && playMatrix[2][0] === t) return t;
+  return undefined;
 }
 
 

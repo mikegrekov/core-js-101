@@ -325,8 +325,9 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  // throw new Error('Not implemented');
+  return arr.filter((x) => x > 0 && typeof x === 'number').length;
 }
 
 /**
@@ -342,8 +343,34 @@ function getPositivesCount(/* arr */) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const mapped = arr.map((a) => {
+    switch (a) {
+      case 'zero':
+        return { value: 0, name: 'zero' };
+      case 'one':
+        return { value: 1, name: 'one' };
+      case 'two':
+        return { value: 2, name: 'two' };
+      case 'three':
+        return { value: 3, name: 'three' };
+      case 'four':
+        return { value: 4, name: 'four' };
+      case 'five':
+        return { value: 5, name: 'five' };
+      case 'six':
+        return { value: 6, name: 'six' };
+      case 'seven':
+        return { value: 7, name: 'seven' };
+      case 'eight':
+        return { value: 8, name: 'eight' };
+      case 'nine':
+        return { value: 9, name: 'nine' };
+      default:
+        return false;
+    }
+  });
+  return (mapped.sort((a, b) => a.value - b.value).map((a) => a.name));
 }
 
 /**
@@ -358,8 +385,9 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  // throw new Error('Not implemented');
+  return arr.reduce((a, item) => a + item, 0);
 }
 
 /**
@@ -374,8 +402,9 @@ function getItemsSum(/* arr */) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  // throw new Error('Not implemented');
+  return arr.filter((a) => (!a)).length;
 }
 
 /**
